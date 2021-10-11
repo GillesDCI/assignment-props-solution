@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Solution Task : Create React components with props
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this task we are going to build a small application that shows a list of users in nicely designed cards.
+You can use the `listUsers.js` and use the array to generate the items. 
 
-## Available Scripts
+## Task 1 - Create react app setup
 
-In the project directory, you can run:
+1. Create a new folder called my `props-assignment-react`
+ 
+2. Open the folder in visual studio and execute the following command in the terminal: 
+   `npx create-react-app .  `
+3. Ready to go! :) 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Task 2 - Create a component that shows detailcard of the user
+In this part of the assignment we are going to build a card that displays the user information. The card needs to contain a username and a user description. 
 
-### `npm test`
+1. Create new folder `components` inside the `src` folder. 
+2. Create a new folder called  `UserCard`.
+3. Create a new file `index.js` inse the `UserCard` folder. 
+4. Write out the component. Make sure the component shows the name of the user and the age of the user. You can use the following snippet as a help: 
+ ```javascript
+const ExampleComponent = () => {
+    return (
+    
+    );
+}
+export default ExampleComponent;
+   ```
+You can use a style library like bootstrap or you can also apply your own styles. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. Make sure the component uses a prop called `user`. You can use the following snippet as a help: 
+ ```javascript
+const ExampleComponent = ({propname}) => {
+    return (
+    
+    );
+}
+export default ExampleComponent;
+   ```
+## Task 3 - Create a component that shows a list of usercards
+In this part of the assignment we want to build a component that displays the usercards in a list. This can be in a grid, or in any style you like, the choice is fully yours. 
+Make sure the component accepts a `users` as a prop.  
 
-### `npm run build`
+1. Create a new folder called  `UserList`.
+2. Create a new file `index.js` inside the `UserList` folder. 
+3. Write out the component. You can use the following snippet for help : 
+ ```javascript
+const ExampleComponent = ({propName}) => {
+    return (
+    
+    );
+}
+export default ExampleComponent;
+ ```
+ 4. Import the `UserCard` component.
+ 5. Make sure to display a card for each item inside `users`. You can use the following snippet as an example of how to list multiple components: 
+ ```javascript
+{users.map((item, index)=> {
+            return (
+               <User user={item} key={index} />
+            );
+})}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ ```
+## Task 4 - Wire up everything together 
+1. Import the `UserList` component inside `App.js`.
+2. Import the users array from `listUsers.js` inside `App.js`
+ ```javascript
+   import {users} from './listUsers'
+ ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Configure the `UserList` component so it takes the array inside listUsers as a prop. Example :
+ ```javascript
+   <UserList users={users} />
+ ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
